@@ -24,10 +24,10 @@ namespace JustLearn.Services.Api
 
             services.AddSwaggerGen(options =>
             {
-                var openApiInfo = new OpenApiInfo 
+                var openApiInfo = new OpenApiInfo
                 {
-                    Title = "JustLearn.Services.Api", 
-                    Version = "v1" 
+                    Title = "JustLearn.Services.Api",
+                    Version = "v1"
                 };
 
                 options.SwaggerDoc(
