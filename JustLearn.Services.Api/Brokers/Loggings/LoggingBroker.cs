@@ -11,10 +11,8 @@ namespace JustLearn.Services.Api.Brokers.Loggings
     {
         private readonly ILogger<LoggingBroker> logger;
 
-        public LoggingBroker(ILogger<LoggingBroker> logger)
-        {
+        public LoggingBroker(ILogger<LoggingBroker> logger) =>
             this.logger = logger;
-        }
 
         public void LogInformation(string message) =>
             this.logger.LogInformation(message);
