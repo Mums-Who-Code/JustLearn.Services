@@ -3,6 +3,7 @@
 // -----------------------------------------------------------------------
 
 using JustLearn.Services.Api.Brokers.DateTimes;
+using JustLearn.Services.Api.Brokers.Loggings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +23,8 @@ namespace JustLearn.Services.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddTransient<IDateTimeBroker, DateTimeBroker>();
+            services.AddLogging();
+            AddBrokers(services);
 
             services.AddSwaggerGen(options =>
             {
@@ -57,6 +59,12 @@ namespace JustLearn.Services.Api
             app.UseRouting();
             app.UseAuthorization();
             app.UseEndpoints(endpoints => endpoints.MapControllers());
+        }
+
+        private static void AddBrokers(IServiceCollection services)
+        {
+            services.AddTransient<IDateTimeBroker, DateTimeBroker>();
+            services.AddTransient<ILoggingBroker, LoggingBroker>();
         }
     }
 }
