@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustLearn.Services.Tests.Un
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JustLearn.Services.Api", "JustLearn.Services.Api\JustLearn.Services.Api.csproj", "{A8D4FD07-C373-4B58-A373-29ED2F63CD32}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JustLearn.Services.Tests.Acceptance", "JustLearn.Services.Tests.Acceptance\JustLearn.Services.Tests.Acceptance.csproj", "{8580DCF2-2FC9-4120-9123-33FFA5829811}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A8D4FD07-C373-4B58-A373-29ED2F63CD32}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D4FD07-C373-4B58-A373-29ED2F63CD32}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D4FD07-C373-4B58-A373-29ED2F63CD32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8580DCF2-2FC9-4120-9123-33FFA5829811}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8580DCF2-2FC9-4120-9123-33FFA5829811}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8580DCF2-2FC9-4120-9123-33FFA5829811}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8580DCF2-2FC9-4120-9123-33FFA5829811}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
