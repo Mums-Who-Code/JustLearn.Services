@@ -11,6 +11,7 @@ namespace JustLearn.Services.Tests.Acceptance.Apis.Home
     public partial class HomeApiTests
     {
         private readonly JustLearnApiBroker justLearnApiBroker;
+
         public HomeApiTests(JustLearnApiBroker justLearnApiBroker) =>
             this.justLearnApiBroker = justLearnApiBroker;
     }
