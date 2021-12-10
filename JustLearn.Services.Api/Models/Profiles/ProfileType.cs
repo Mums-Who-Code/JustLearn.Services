@@ -6,8 +6,8 @@ namespace JustLearn.Services.Api.Models.Profiles
 {
     public enum ProfileType
     {
-        STUDENT,
-        TEACHER,
-        ADMIN
+        Student,
+        Teacher,
+        Admin
     }
 }
