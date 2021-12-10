@@ -9,6 +9,6 @@ namespace JustLearn.Services.Api.Brokers.Storages
 {
     public partial class StorageBroker
     {
-        DbSet<Profile> Profile { get; set; }
+        DbSet<Profile> Profiles { get; set; }
     }
 }

@@ -14,7 +14,7 @@ namespace JustLearn.Services.Api.Models.Profiles
         public ProfileType Type { get; set; }
         public ProfileStatus Status { get; set; }
         public DateTimeOffset ExpirationDate { get; set; }
-        public int Renewed { get; set; }
+        public int RenewalCount { get; set; }
 
         public DateTimeOffset CreatedDate { get; set; }
         public DateTimeOffset UpdatedDate { get; set; }

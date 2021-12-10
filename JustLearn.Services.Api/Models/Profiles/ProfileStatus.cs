@@ -6,7 +6,7 @@ namespace JustLearn.Services.Api.Models.Profiles
 {
     public enum ProfileStatus
     {
-        ACTIVE,
-        INACTIVE
+        Active,
+        Inactive
     }
 }
