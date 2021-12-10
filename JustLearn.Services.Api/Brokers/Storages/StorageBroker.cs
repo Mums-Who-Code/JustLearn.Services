@@ -18,8 +18,11 @@ namespace JustLearn.Services.Api.Brokers.Storages
             this.Database.Migrate();
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) =>
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
             SeedUsers(modelBuilder);
+            SetProfileReferences(modelBuilder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
