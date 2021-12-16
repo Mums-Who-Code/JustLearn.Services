@@ -16,7 +16,7 @@ namespace JustLearn.Services.Api.Services.Foundations.Profiles
         public ProfileService(IStorageBroker storageBroker) =>
             this.storageBroker = storageBroker;
 
-        public ValueTask<Profile> AddProfileAsync(Profile profile) =>
-            throw new NotImplementedException();
+        public async ValueTask<Profile> AddProfileAsync(Profile profile) =>
+            await this.storageBroker.InsertProfileAsync(profile);
     }
 }
