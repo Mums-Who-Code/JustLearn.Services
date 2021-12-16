@@ -17,24 +17,24 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
         public async Task ShouldAddProfileAsync()
         {
             // given
-            Profile randomCategory = CreateRandomProfile();
-            Profile inputCategory = randomCategory;
-            Profile storageCategory = inputCategory;
-            Profile expectedCategory = storageCategory.DeepClone();
+            Profile randomProfile = CreateRandomProfile();
+            Profile inputProfile = randomProfile;
+            Profile storageProfile = inputProfile;
+            Profile expectedProfile = storageProfile.DeepClone();
 
             this.storageBrokerMock.Setup(broker =>
-                broker.InsertProfileAsync(inputCategory))
-                    .ReturnsAsync(storageCategory);
+                broker.InsertProfileAsync(inputProfile))
+                    .ReturnsAsync(storageProfile);
 
             // when
             Profile actualCategory =
-                await this.profileService.AddProfileAsync(inputCategory);
+                await this.profileService.AddProfileAsync(inputProfile);
 
             // then
-            actualCategory.Should().BeEquivalentTo(expectedCategory);
+            actualCategory.Should().BeEquivalentTo(expectedProfile);
 
             this.storageBrokerMock.Verify(broker =>
-                broker.InsertProfileAsync(inputCategory),
+                broker.InsertProfileAsync(inputProfile),
                     Times.Once);
 
             this.storageBrokerMock.VerifyNoOtherCalls();
