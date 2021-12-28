@@ -3,6 +3,9 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Linq.Expressions;
+using JustLearn.Services.Api.Brokers.DateTimes;
+using JustLearn.Services.Api.Brokers.Loggings;
 using JustLearn.Services.Api.Brokers.Storages;
 using JustLearn.Services.Api.Models.Profiles;
 using JustLearn.Services.Api.Services.Foundations.Profiles;
@@ -13,8 +16,10 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
 {
     public partial class ProfileServiceTests
     {
-        private readonly IProfileService profileService;
         private readonly Mock<IStorageBroker> storageBrokerMock;
+        private readonly Mock<ILoggingBroker> loggingBrokerMock;
+        private readonly Mock<IDateTimeBroker> dateTimeBrokerMock;
+        private readonly IProfileService profileService;
 
         public ProfileServiceTests()
         {
@@ -39,6 +44,13 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
                 .OnType<DateTimeOffset>().Use(dateTime);
 
             return filler;
+        }
+
+        private static Expression<Func<Exception, bool>> SameExceptionAs(Exception expectedException)
+        {
+            return actualException =>
+                actualException.Message == expectedException.Message
+                && actualException.InnerException.Message == expectedException.InnerException.Message;
         }
     }
 }
