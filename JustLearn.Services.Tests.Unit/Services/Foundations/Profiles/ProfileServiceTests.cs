@@ -35,6 +35,13 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
         private static Profile CreateRandomProfile() =>
             CreateProfileFiller(dateTime: GetRandomDateTime()).Create();
 
+        private static Expression<Func<Exception, bool>> SameExceptionAs(Exception expectedException)
+        {
+            return actualException =>
+                actualException.Message == expectedException.Message
+                && actualException.InnerException.Message == expectedException.InnerException.Message;
+        }
+
         private static Filler<Profile> CreateProfileFiller(DateTimeOffset dateTime)
         {
             var filler = new Filler<Profile>();
@@ -44,13 +51,6 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
                 .OnType<DateTimeOffset>().Use(dateTime);
 
             return filler;
-        }
-
-        private static Expression<Func<Exception, bool>> SameExceptionAs(Exception expectedException)
-        {
-            return actualException =>
-                actualException.Message == expectedException.Message
-                && actualException.InnerException.Message == expectedException.InnerException.Message;
         }
     }
 }

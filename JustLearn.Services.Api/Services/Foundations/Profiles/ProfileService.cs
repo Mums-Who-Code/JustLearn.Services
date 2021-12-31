@@ -2,7 +2,6 @@
 // Copyright (c) MumsWhoCode. All rights reserved.
 // -----------------------------------------------------------------------
 
-using System;
 using System.Threading.Tasks;
 using JustLearn.Services.Api.Brokers.Storages;
 using JustLearn.Services.Api.Models.Profiles;
