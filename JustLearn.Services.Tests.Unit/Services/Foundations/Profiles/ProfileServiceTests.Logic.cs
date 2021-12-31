@@ -27,11 +27,11 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
                     .ReturnsAsync(storageProfile);
 
             // when
-            Profile actualCategory =
+            Profile actualProfile =
                 await this.profileService.AddProfileAsync(inputProfile);
 
             // then
-            actualCategory.Should().BeEquivalentTo(expectedProfile);
+            actualProfile.Should().BeEquivalentTo(expectedProfile);
 
             this.storageBrokerMock.Verify(broker =>
                 broker.InsertProfileAsync(inputProfile),
