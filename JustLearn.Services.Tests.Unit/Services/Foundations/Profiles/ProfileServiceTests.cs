@@ -4,13 +4,13 @@
 
 using System;
 using System.Linq.Expressions;
-using JustLearn.Services.Api.Brokers.DateTimes;
 using JustLearn.Services.Api.Brokers.Loggings;
 using JustLearn.Services.Api.Brokers.Storages;
 using JustLearn.Services.Api.Models.Profiles;
 using JustLearn.Services.Api.Services.Foundations.Profiles;
 using Moq;
 using Tynamix.ObjectFiller;
+using Xeptions;
 
 namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
 {
@@ -18,15 +18,16 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
     {
         private readonly Mock<IStorageBroker> storageBrokerMock;
         private readonly Mock<ILoggingBroker> loggingBrokerMock;
-        private readonly Mock<IDateTimeBroker> dateTimeBrokerMock;
         private readonly IProfileService profileService;
 
         public ProfileServiceTests()
         {
             this.storageBrokerMock = new Mock<IStorageBroker>();
+            this.loggingBrokerMock = new Mock<ILoggingBroker>();
 
             this.profileService = new ProfileService(
-                storageBroker: this.storageBrokerMock.Object);
+                storageBroker: this.storageBrokerMock.Object,
+                loggingBroker: this.loggingBrokerMock.Object);
         }
 
         private static DateTimeOffset GetRandomDateTime() =>
@@ -35,7 +36,7 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
         private static Profile CreateRandomProfile() =>
             CreateProfileFiller(dateTime: GetRandomDateTime()).Create();
 
-        private static Expression<Func<Exception, bool>> SameExceptionAs(Exception expectedException)
+        private static Expression<Func<Xeption, bool>> SameExceptionAs(Exception expectedException)
         {
             return actualException =>
                 actualException.Message == expectedException.Message

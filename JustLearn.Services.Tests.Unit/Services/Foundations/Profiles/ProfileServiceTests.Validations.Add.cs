@@ -41,7 +41,6 @@ namespace JustLearn.Services.Tests.Unit.Services.Foundations.Profiles
 
             this.loggingBrokerMock.VerifyNoOtherCalls();
             this.storageBrokerMock.VerifyNoOtherCalls();
-            this.dateTimeBrokerMock.VerifyNoOtherCalls();
         }
     }
 }
